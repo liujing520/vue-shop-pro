@@ -17,6 +17,7 @@
           :collapse="isshow"
           text-color="#fff"
           active-text-color="#409eef"
+          :router="true"
         >
           <el-submenu
             :index="item.id+''"
@@ -28,11 +29,7 @@
               <i :class="'iconfont icon-' + iconList[k]"></i>
               <span>{{item.authName}}</span>
             </template>
-            <el-menu-item
-              :index="item.id+'-'+item2.id"
-              v-for="item2 in item.children"
-              :key="item2.id"
-            >
+            <el-menu-item v-for="item2 in item.children" :key="item2.id" :index="item2.path">
               <i class="el-icon-menu"></i>
               <span>{{item2.authName}}</span>
             </el-menu-item>
